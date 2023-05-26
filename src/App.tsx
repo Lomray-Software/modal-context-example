@@ -1,24 +1,18 @@
+import ModalRoot, { IModalRoot } from '@lomray/client-helpers-react/modals/root';
+import { ModalProvider } from '@lomray/client-helpers-react/modals/root/context';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Layout from './components/layout';
+import { ModalContextConfigurator } from './modals/configurator';
+import Modal from './modals/default';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ModalProvider>
+        <Layout />
+        <ModalRoot Modal={Modal as unknown as IModalRoot['Modal']} />
+        <ModalContextConfigurator/>
+      </ModalProvider>
     </div>
   );
 }

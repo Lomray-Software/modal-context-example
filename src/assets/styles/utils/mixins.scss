@@ -1,0 +1,208 @@
+/**
+ * Main flex properties mixin
+ * It can be used with random properties order
+ * Ex: @include flex($dir: column, $align: flex-start)
+ */
+@mixin flex($just: false, $dir: false, $align: false, $wrap: false) {
+  display: flex;
+  @if ($dir) {
+    flex-direction: $dir;
+  }
+  @if ($align) {
+    align-items: $align;
+  }
+  @if ($wrap) {
+    flex-wrap: $wrap;
+  }
+  @if ($just) {
+    justify-content: $just;
+  }
+}
+
+@mixin contain-background($url) {
+  background: url($url) no-repeat center center;
+  background-position-y: $header-height-lg;
+  background-size: cover;
+
+  @include media-breakpoint-down(xl) {
+    background-position-y: $header-height-md;
+  }
+
+  @include media-breakpoint-down(sm) {
+    background-position-y: $header-height-sm;
+  }
+}
+/**
+ * Replace svg colors via fill and stroke
+ * Svg will be colored for existing params only
+ */
+@mixin svg-colors($color) {
+  &,
+  svg {
+    transition: 0.3s;
+
+    path,
+    rect,
+    line,
+    circle {
+      transition: 0.3s;
+
+      &[stroke] {
+        stroke: $color;
+      }
+
+      &[fill] {
+        fill: $color;
+      }
+    }
+  }
+}
+
+/**
+ * Adds the same width and height to an element
+ */
+@mixin square($size) {
+  height: $size;
+  min-width: $size;
+  width: $size;
+}
+
+/**
+ * Fill space for absolute or fixed position
+ */
+@mixin fill($position: false, $gap: 0) {
+  @if ($position) {
+    position: $position;
+  }
+  bottom: $gap;
+  left: $gap;
+  right: $gap;
+  top: $gap;
+}
+
+/**
+ * Font params
+ */
+@mixin font-params($font-size, $font-weight: false, $color: false, $line-height: false) {
+  font-size: $font-size;
+  @if ($font-weight) {
+    font-weight: $font-weight;
+  }
+  @if ($color) {
+    color: $color;
+  }
+  @if ($line-height) {
+    line-height: $line-height;
+  }
+}
+
+/**
+ * Fill page height based on header height
+ */
+@mixin fill-page-to-available-height($top: false, $bottom: false, $margin: 0px) {
+  @if ($bottom) {
+    padding-bottom: $bottom;
+  }
+
+  @if ($top) {
+    padding-top: $top;
+  }
+
+  max-height: inherit;
+  min-height: calc(100vh - #{$header-height-lg} - #{$margin});
+
+  @include media-breakpoint-down(md) {
+    min-height: calc(100vh - #{$header-height-md} - #{$margin});
+  }
+
+  @include media-breakpoint-down(sm) {
+    min-height: calc(100vh - #{$header-height-sm} - #{$margin});
+  }
+}
+
+@mixin margin-by-header() {
+  margin-top: $header-height-lg;
+
+  @include media-breakpoint-down(xl) {
+    margin-top: $header-height-md;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin-top: $header-height-sm;
+  }
+}
+
+/**
+ * Angle sunflower layout
+ */
+@mixin sunflower($type: left) {
+  &:after {
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    position: absolute;
+    width: 100%;
+
+    @if ($type == left) {
+      background-image: url('/src/assets/images/sunflower/angled.svg');
+      background-position: left bottom;
+      bottom: 0;
+      left: 0;
+      max-width: 307px;
+      padding-top: 82.73%;
+    }
+
+    @if ($type == right) {
+      background-image: url('/src/assets/images/sunflower/angled-right.svg');
+      background-position: right bottom;
+      bottom: 0;
+      max-width: 180px;
+      padding-top: 100%;
+      right: 0;
+    }
+
+    @if ($type == topRight) {
+      background-image: url('/src/assets/images/sunflower/right-top.svg');
+      background-position: right top;
+      max-width: 120px;
+      padding-top: 100%;
+      right: 0;
+      top: 0;
+    }
+
+    @if ($type == bottomRight) {
+      background-image: url('/src/assets/images/sunflower/right-bottom.svg');
+      background-position: right bottom;
+      bottom: 0;
+      max-width: 100px;
+      padding-bottom: 100%;
+      right: 0;
+    }
+
+    @content;
+  }
+}
+
+/**
+ * Includes all base button events for styling
+ */
+@mixin events() {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin fade-in($seconds: 5) {
+  animation: fade-in-anim #{$seconds}s forwards;
+}
+
+@keyframes fade-in-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

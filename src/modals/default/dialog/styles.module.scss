@@ -1,0 +1,33 @@
+@import 'src/assets/styles/utils/vars';
+@import 'src/assets/styles/utils/mixins';
+@import 'src/assets/styles/utils/media-query';
+@import '../animations';
+
+.dialog {
+  @include fill(absolute);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 22px;
+}
+
+.body {
+  background: $white;
+  border-radius: $border-radius-3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 16px;
+  position: absolute;
+  z-index: 101;
+  @include animations();
+
+  &:focus {
+    outline: none;
+  }
+
+  @include media-breakpoint-down(md) {
+    border-radius: 28px;
+  }
+}

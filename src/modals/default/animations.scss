@@ -1,0 +1,229 @@
+/* stylelint-disable */
+@mixin animations() {
+  /* -- fade -- */
+  &.modal-fade-enter {
+    animation: modal-fade-enter both ease-in;
+  }
+
+  &.modal-fade-leave {
+    animation: modal-fade-leave both ease-out;
+  }
+
+  /* -- zoom -- */
+  &.modal-zoom-enter {
+    animation: modal-zoom-enter both cubic-bezier(0.4, 0, 0, 1.5);
+  }
+
+  &.modal-zoom-leave {
+    animation: modal-zoom-leave both;
+  }
+
+  /* -- slideDown -- */
+  &.modal-slideDown-enter {
+    animation: modal-slideDown-enter both cubic-bezier(0.4, 0, 0, 1.5);
+  }
+
+  &.modal-slideDown-leave {
+    animation: modal-slideDown-leave both;
+  }
+
+  /* -- slideLeft -- */
+  &.modal-slideLeft-enter {
+    animation: modal-slideLeft-enter both cubic-bezier(0.4, 0, 0, 1.5);
+  }
+
+  &.modal-slideLeft-leave {
+    animation: modal-slideLeft-leave both;
+  }
+
+  /* -- slideRight -- */
+  &.modal-slideRight-enter {
+    animation: modal-slideRight-enter both cubic-bezier(0.4, 0, 0, 1.5);
+  }
+
+  &.modal-slideRight-leave {
+    animation: modal-slideRight-leave both;
+  }
+
+  /* -- slideUp -- */
+  &.modal-slideUp-enter {
+    animation: modal-slideUp-enter both ease-in-out;
+  }
+
+  &.modal-slideUp-leave {
+    animation: modal-slideUp-leave both ease-out;
+  }
+
+  /* -- flip -- */
+  &.modal-flip-enter {
+    animation: modal-flip-enter both ease-in;
+    backface-visibility: visible !important;
+  }
+
+  &.modal-flip-leave {
+    animation: modal-flip-leave both;
+    backface-visibility: visible !important;
+  }
+
+  /* -- rotate -- */
+  &.modal-rotate-enter {
+    animation: modal-rotate-enter both;
+    transform-origin: center;
+  }
+
+  &.modal-rotate-leave {
+    animation: modal-rotate-leave both;
+    transform-origin: center;
+  }
+
+  /* -- door -- */
+  &.modal-door-enter {
+    animation: modal-door-enter both cubic-bezier(0.4, 0, 0, 1.5);
+  }
+
+  &.modal-door-leave {
+    animation: modal-door-leave both;
+  }
+
+  /* -- mobileMenu slideRight -- */
+  &.modal-mobileMenuOpen-enter {
+    animation: modal-slideLeft-enter both ease-out;
+  }
+
+  &.modal-mobileMenuClose-leave {
+    animation: modal-slideLeft-leave both;
+  }
+
+  /* -- fade -- */
+  @keyframes modal-fade-enter {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes modal-fade-leave {
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* -- zoom -- */
+  @keyframes modal-zoom-enter {
+    from {
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+  }
+
+  @keyframes modal-zoom-leave {
+    to {
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+  }
+
+  /* -- slideDown -- */
+  @keyframes modal-slideDown-enter {
+    from {
+      transform: translate3d(0, -100px, 0);
+    }
+  }
+
+  @keyframes modal-slideDown-leave {
+    to {
+      transform: translate3d(0, -100px, 0);
+    }
+  }
+
+  /* -- slideLeft -- */
+  @keyframes modal-slideLeft-enter {
+    from {
+      transform: translate3d(-150px, 0, 0);
+    }
+  }
+
+  @keyframes modal-slideLeft-leave {
+    to {
+      transform: translate3d(-150px, 0, 0);
+    }
+  }
+
+  /* -- slideRight -- */
+  @keyframes modal-slideRight-enter {
+    from {
+      transform: translate3d(150px, 0, 0);
+    }
+  }
+
+  @keyframes modal-slideRight-leave {
+    to {
+      transform: translate3d(150px, 0, 0);
+    }
+  }
+
+  /* -- slideUp -- */
+  @keyframes modal-slideUp-enter {
+    from {
+      transform: translate3d(0, 100px, 0);
+    }
+  }
+
+  @keyframes modal-slideUp-leave {
+    to {
+      transform: translate3d(0, 100px, 0);
+    }
+  }
+
+  /* -- flip -- */
+  @keyframes modal-flip-enter {
+    from {
+      transform: perspective(400px) rotate3d(1, 0, 0, 60deg);
+    }
+    70% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+    }
+    to {
+      transform: perspective(400px);
+    }
+  }
+
+  @keyframes modal-flip-leave {
+    from {
+      transform: perspective(400px);
+    }
+    30% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -15deg);
+    }
+    to {
+      transform: perspective(400px) rotate3d(1, 0, 0, 45deg);
+    }
+  }
+
+  /* -- rotate -- */
+  @keyframes modal-rotate-enter {
+    from {
+      transform: rotate3d(0, 0, 1, -180deg) scale3d(0.3, 0.3, 0.3);
+    }
+  }
+
+  @keyframes modal-rotate-leave {
+    to {
+      transform: rotate3d(0, 0, 1, 180deg) scale3d(0.3, 0.3, 0.3);
+    }
+  }
+
+  /* -- door -- */
+  @keyframes modal-door-enter {
+    from {
+      transform: scale3d(0, 1, 1);
+    }
+  }
+
+  @keyframes modal-door-leave {
+    60% {
+      transform: scale3d(0.01, 1, 1);
+    }
+    to {
+      transform: scale3d(0, 1, 0.1);
+    }
+  }
+}
+/* stylelint-enable */
