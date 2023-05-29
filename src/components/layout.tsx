@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import useMyModal from '../modals/my-modal/use-my-modal';
-import modalsRef from '../modals/configurator';
+import useMyModal, { myModalRef } from '../modals/my-modal/use-my-modal';
 
 /**
  * Layout
@@ -15,7 +14,7 @@ const Layout: FC = () => {
         open modal via hook
       </button>
 
-      <button onClick={() => modalsRef.myModal?.open(null, { text: 'hello global' })}>
+      <button onClick={() => myModalRef?.open(null, { text: 'hello global' })}>
         open modal via global
       </button>
     </div>
