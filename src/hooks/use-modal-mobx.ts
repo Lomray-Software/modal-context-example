@@ -6,14 +6,14 @@ import useModal from '@lomray/client-helpers-react/modals/root/use-modal';
 /**
  * Use modal for custom inners
  */
-const useModalMobx = <TProps extends IModalParentId>(
-  Component: IModalItem<TProps>['Component'],
+const useModalMobx = <TProps extends object>(
+  Component: IModalItem<TProps & IModalParentId>['Component'],
   props?: IDefaultModalProps,
-  componentProps?: IModalItem<TProps>['componentProps'],
+  componentProps?: IModalItem<TProps & IModalParentId>['componentProps'],
 ) => {
   const parentId = useStoreManagerParentContext();
 
-  return useModal(Component as never, props, { ...componentProps, parentId } as TProps & IModalParentId);
+  return useModal(Component as never, props, { ...componentProps, parentId });
 };
 
 export default useModalMobx;

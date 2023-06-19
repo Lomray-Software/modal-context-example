@@ -2,11 +2,11 @@ import { IModalParentId, IModalToggle } from '@lomray/client-helpers-react/modal
 import React, { FC } from 'react';
 import { IStore } from './index.stores';
 
-export interface IMyModalMobx extends IModalToggle, IModalParentId {
+export interface IMyModalMobx {
   text?: string;
 }
 
-export type TProps = IMyModalMobx & IStore
+export type TProps = IMyModalMobx & IModalToggle & IModalParentId & IStore;
 
 /**
  * MyModalMobx

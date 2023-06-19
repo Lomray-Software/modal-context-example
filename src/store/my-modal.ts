@@ -9,7 +9,7 @@ class MyModalStore {
   public count = 1;
 
   /**
-   * User store
+   * My component store (parent)
    */
   public myComponentStore: ClassReturnType<typeof MyComponentStore>;
 
