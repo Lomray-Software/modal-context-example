@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@lomray/client-helpers": "^1.9.0",
-    "@lomray/client-helpers-react": "^1.4.0",
-    "@lomray/react-mobx-manager": "^1.5.2",
+    "@lomray/client-helpers": "^1.10.0",
+    "@lomray/client-helpers-react": "^1.4.1",
+    "@lomray/react-mobx-manager": "^2.0.0-beta.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

@@ -1,4 +1,4 @@
-import { Manager, StoreManagerProvider, MobxLocalStorage } from '@lomray/react-mobx-manager';
+import { Manager, StoreManagerProvider,  } from '@lomray/react-mobx-manager';
 import { ModalProvider } from '@lomray/client-helpers-react/modals/root/context';
 import ModalRoot from '@lomray/client-helpers-react/modals/root';
 import React from 'react';
@@ -7,9 +7,7 @@ import MyComponent from './components/my-component';
 import MyComponentMobx from './components/my-component-mobx/index.wrapper';
 import Modal from './modals/default';
 
-const storeManager = new Manager({
-  storage: new MobxLocalStorage(),
-});
+const storeManager = new Manager();
 
 const App = () => (
   <StoreManagerProvider storeManager={storeManager}>

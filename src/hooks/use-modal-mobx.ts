@@ -11,7 +11,7 @@ const useModalMobx = <TProps extends IModalParentId>(
   props?: IDefaultModalProps,
   componentProps?: IModalItem<TProps>['componentProps'],
 ) => {
-  const { parentId } = useStoreManagerParentContext();
+  const parentId = useStoreManagerParentContext();
 
   return useModal(Component as never, props, { ...componentProps, parentId } as TProps & IModalParentId);
 };
