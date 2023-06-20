@@ -1,8 +1,8 @@
 import createModalRef from '@lomray/client-helpers-react/modals/root/create-modal-ref';
+import useModalMobx from '@lomray/client-helpers-react/modals/root/use-modal-mobx';
 import React from 'react';
 import MyModal from './index.wrapper';
 import { IMyModalMobx } from './index';
-import useModalMobx from '../../hooks/use-modal-mobx';
 
 export const myModalMobxRef = createModalRef<IMyModalMobx>();
 
