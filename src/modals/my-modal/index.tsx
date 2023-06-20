@@ -9,9 +9,10 @@ export interface IMyModal {
  * MyModal
  * @constructor
  */
-const MyModal: FC<IMyModal & IModalToggle> = ({ text, toggle, isVisible }) => (
+const MyModal: FC<IMyModal & IModalToggle> = ({ toggle, isVisible, text = 'default' }) => (
   <div style={{ width: 300 }}>
-    <p>{text}</p>
+    <p>isVisible: {isVisible}</p>
+    <p>text: {text}</p>
     <button onClick={toggle}>close</button>
   </div>
 );
