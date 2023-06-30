@@ -16,7 +16,7 @@ const App = () => (
         <MyComponent />
         <MyComponentMobx />
       </Layout>
-      <ModalRoot Modal={Modal as never} />
+      <ModalRoot Modal={(props) => <Modal {...props} />} />
     </ModalProvider>
   </StoreManagerProvider>
 );
