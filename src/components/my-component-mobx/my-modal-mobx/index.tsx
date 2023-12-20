@@ -1,9 +1,8 @@
-import { IModalParentId, IModalToggle } from '@lomray/client-helpers-react/modals/root/types';
+import type { IModalParentId, IModalToggle } from '@lomray/react-modals';
+import { createModalRef, useModalMobx } from '@lomray/react-modals';
+import { withStores } from '@lomray/react-mobx-manager';
 import React, { FC } from 'react';
 import stores, { IStore } from './index.stores';
-import createModalRef from '@lomray/client-helpers-react/modals/root/create-modal-ref';
-import useModalMobx from '@lomray/client-helpers-react/modals/root/use-modal-mobx';
-import { withStores } from '@lomray/react-mobx-manager/./index';
 
 export interface IMyModalMobx {
   text?: string;

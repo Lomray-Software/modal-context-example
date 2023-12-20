@@ -1,7 +1,7 @@
+import { withStores } from '@lomray/react-mobx-manager';
 import React, { FC } from 'react';
 import stores, { IStore } from './index.stores';
 import useMyModalMobx, { myModalMobxRef } from './my-modal-mobx';
-import { withStores } from '@lomray/react-mobx-manager/./index';
 
 /**
  * MyComponentMobx

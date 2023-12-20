@@ -1,5 +1,5 @@
 import type { FCC } from '@lomray/client-helpers/interfaces/fc-with-children';
-import { IModalToggle } from '@lomray/client-helpers-react/modals/root/types';
+import type { IModalToggle } from '@lomray/react-modals';
 import type { DialogHTMLAttributes, MouseEvent } from 'react';
 import { useRef } from 'react';
 import styles from './styles.module.scss';
