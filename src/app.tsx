@@ -1,6 +1,5 @@
 import { Manager, StoreManagerProvider,  } from '@lomray/react-mobx-manager';
-import { ModalProvider } from '@lomray/client-helpers-react/modals/root/context';
-import ModalRoot from '@lomray/client-helpers-react/modals/root';
+import { ModalProvider, ModalRoot } from '@lomray/react-modals';
 import React from 'react';
 import Layout from './components/layout';
 import MyComponent from './components/my-component';

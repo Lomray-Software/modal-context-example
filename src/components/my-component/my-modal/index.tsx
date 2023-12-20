@@ -1,7 +1,6 @@
-import { IModalToggle } from '@lomray/client-helpers-react/modals/root/types';
+import type { IModalToggle } from '@lomray/react-modals';
+import { createModalRef, useModal } from '@lomray/react-modals';
 import React, { FC } from 'react';
-import createModalRef from '@lomray/client-helpers-react/modals/root/create-modal-ref';
-import useModal from '@lomray/client-helpers-react/modals/root/use-modal';
 
 export interface IMyModal {
   text: string;
