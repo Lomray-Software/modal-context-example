@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import useMyModal, { myModalRef } from '../../modals/my-modal/use-my-modal';
+import useMyModal, { myModalRef } from './my-modal';
 
 /**
  * MyComponent

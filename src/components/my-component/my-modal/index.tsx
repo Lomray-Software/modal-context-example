@@ -1,5 +1,7 @@
 import { IModalToggle } from '@lomray/client-helpers-react/modals/root/types';
 import React, { FC } from 'react';
+import createModalRef from '@lomray/client-helpers-react/modals/root/create-modal-ref';
+import useModal from '@lomray/client-helpers-react/modals/root/use-modal';
 
 export interface IMyModal {
   text: string;
@@ -17,4 +19,16 @@ const MyModal: FC<IMyModal & IModalToggle> = ({ toggle, isVisible, text = 'defau
   </div>
 );
 
-export default MyModal;
+export const myModalRef = createModalRef<IMyModal>();
+
+/**
+ * useMyModal
+ * @constructor
+ */
+const useMyModal = () =>
+  useModal<IMyModal>(MyModal, {
+    className: 'styles.body',
+    hookRef: myModalRef,
+  });
+
+export default useMyModal;

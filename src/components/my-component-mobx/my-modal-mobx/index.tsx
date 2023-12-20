@@ -1,6 +1,9 @@
 import { IModalParentId, IModalToggle } from '@lomray/client-helpers-react/modals/root/types';
 import React, { FC } from 'react';
-import { IStore } from './index.stores';
+import stores, { IStore } from './index.stores';
+import createModalRef from '@lomray/client-helpers-react/modals/root/create-modal-ref';
+import useModalMobx from '@lomray/client-helpers-react/modals/root/use-modal-mobx';
+import { withStores } from '@lomray/react-mobx-manager/./index';
 
 export interface IMyModalMobx {
   text?: string;
@@ -28,4 +31,18 @@ const MyModalMobx: FC<TProps> = ({
   </div>
 );
 
-export default MyModalMobx;
+const MyModalMobxWrapper = withStores(MyModalMobx, stores)
+
+export const myModalMobxRef = createModalRef<IMyModalMobx>();
+
+/**
+ * useMyModalMobx
+ * @constructor
+ */
+const useMyModalMobx = () =>
+  useModalMobx<TProps>(MyModalMobxWrapper, {
+    className: 'styles.body',
+    hookRef: myModalMobxRef,
+  });
+
+export default useMyModalMobx;
