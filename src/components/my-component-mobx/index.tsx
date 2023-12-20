@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import useMyModalMobx, { myModalMobxRef } from '../../modals/my-modal-mobx/use-my-modal-mobx';
-import { IStore } from './index.stores';
+import stores, { IStore } from './index.stores';
+import useMyModalMobx, { myModalMobxRef } from './my-modal-mobx';
+import { withStores } from '@lomray/react-mobx-manager/./index';
 
 /**
  * MyComponentMobx
@@ -31,4 +32,6 @@ const MyComponentMobx: FC<IStore> = ({ store: { text }}) => {
 // @ts-ignore
 MyComponentMobx.contextId = 'contextId';
 
-export default MyComponentMobx;
+const MyComponentMobxWrapper = withStores(MyComponentMobx, stores)
+
+export default MyComponentMobxWrapper;

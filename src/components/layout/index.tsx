@@ -7,7 +7,7 @@ import React, { memo } from 'react';
  */
 const Layout: FCC = ({ children }) => {
   return (
-    <div>
+    <div className="layout">
       {children}
     </div>
   );

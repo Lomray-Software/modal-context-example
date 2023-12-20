@@ -4,8 +4,8 @@ import ModalRoot from '@lomray/client-helpers-react/modals/root';
 import React from 'react';
 import Layout from './components/layout';
 import MyComponent from './components/my-component';
-import MyComponentMobx from './components/my-component-mobx/index.wrapper';
-import Modal from './modals/default';
+import MyComponentMobx from './components/my-component-mobx';
+import Dialog from './modals/default';
 
 const storeManager = new Manager();
 
@@ -16,7 +16,7 @@ const App = () => (
         <MyComponent />
         <MyComponentMobx />
       </Layout>
-      <ModalRoot Modal={Modal as never} />
+      <ModalRoot Modal={(props) => <Dialog {...props} />} />
     </ModalProvider>
   </StoreManagerProvider>
 );

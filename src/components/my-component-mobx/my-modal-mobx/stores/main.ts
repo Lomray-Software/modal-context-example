@@ -1,6 +1,6 @@
 import { action, makeObservable, observable } from 'mobx';
 import { ClassReturnType, IConstructorParams } from '@lomray/react-mobx-manager';
-import MyComponentStore from './my-component';
+import MyComponentStore from '../../stores/main';
 
 /**
  * MyModal store
