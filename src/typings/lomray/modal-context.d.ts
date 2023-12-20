@@ -1,6 +1,6 @@
 import { IModalProps as IModalPropsDefault } from '@lomray/client-helpers-react/modals/root/types'
-import { IModalProps as IModalPropsComponent } from '../../modals/default'
+import { TDialogProps } from '../../modals/default'
 
 declare module '@lomray/client-helpers-react/modals/root/types' {
-  interface IModalProps extends IModalPropsDefault, IModalPropsComponent {}
+  interface IModalProps extends IModalPropsDefault, TDialogProps {}
 }
