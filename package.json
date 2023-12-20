@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@lomray/client-helpers": "^1.10.0",
-    "@lomray/client-helpers-react": "^1.4.2",
+    "@lomray/client-helpers-react": "^3.1.0",
     "@lomray/react-mobx-manager": "^2.0.0-beta.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

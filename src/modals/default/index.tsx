@@ -1,8 +1,44 @@
-import type { IModalState, IModalProps } from '@lomray/client-helpers-react/modals/root/types'
 import type { ReactNode } from 'react';
 import React, { PureComponent } from 'react';
 import Dialog from './dialog';
 import styles from './styles.module.scss';
+import { IModalHookRef, IModalToggle } from '@lomray/client-helpers-react/modals/root/types';
+
+export type ModalAnimation =
+  | 'zoom'
+  | 'fade'
+  | 'flip'
+  | 'door'
+  | 'rotate'
+  | 'slideUp'
+  | 'slideDown'
+  | 'slideLeft'
+  | 'slideRight'
+  | 'mobileMenuOpen'
+  | 'mobileMenuClose';
+
+export type ModalAnimationType = 'enter' | 'leave';
+
+export interface IModalProps<TProps extends object = Record<string, any>> extends IModalToggle {
+  animation?: ModalAnimation;
+  enterAnimation?: ModalAnimation;
+  leaveAnimation?: ModalAnimation;
+  shouldCloseOnEsc?: boolean;
+  willCloseMaskOnClick?: boolean;
+  isShowMask?: boolean;
+  onAnimationEnd?: () => void;
+  onClose?: () => void;
+  className?: string;
+  bodyClassName?: string;
+  children?: ReactNode;
+  closeButton?: (defaultProps: { onClick: () => void; className: string }) => ReactNode;
+  hookRef?: IModalHookRef<TProps>;
+}
+
+export interface IModalState {
+  isShow: boolean;
+  animationType: ModalAnimationType;
+}
 
 /**
  * Modal
