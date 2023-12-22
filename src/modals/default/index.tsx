@@ -9,7 +9,7 @@ export type TDialogProps = DialogHTMLAttributes<HTMLDialogElement> & IModalToggl
 /**
  * Dialog component.
  */
-const Dialog: FCC<TDialogProps> = ({ children, className, onClose, toggle }) => {
+const Dialog: FCC<TDialogProps> = ({ children, closeModal, className, ...rest }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   /**
@@ -21,8 +21,7 @@ const Dialog: FCC<TDialogProps> = ({ children, className, onClose, toggle }) => 
       return;
     }
 
-    toggle();
-    onClose?.(e);
+    closeModal();
   };
 
   return (
@@ -31,10 +30,9 @@ const Dialog: FCC<TDialogProps> = ({ children, className, onClose, toggle }) => 
       ref={dialogRef}
       onClick={handleClickOutside}
       className={[styles.dialog, className].join(' ')}
+      {...rest}
     >
-      <div className={styles.content}>
-        {children}
-      </div>
+      {children}
     </dialog>
   );
 };

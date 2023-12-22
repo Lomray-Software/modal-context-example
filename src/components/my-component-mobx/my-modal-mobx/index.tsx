@@ -1,38 +1,37 @@
-import type { IModalParentId, IModalToggle } from '@lomray/react-modals';
+import type { IModalToggle } from '@lomray/react-modals';
 import { createModalRef, useModalMobx } from '@lomray/react-modals';
 import { withStores } from '@lomray/react-mobx-manager';
 import React, { FC } from 'react';
 import stores, { IStore } from './index.stores';
 
-export interface IMyModalMobx {
+interface IMyModalMobx {
   text?: string;
 }
 
-export type TProps = IMyModalMobx & IModalToggle & IModalParentId & IStore;
+export type TProps = IMyModalMobx & IModalToggle & IStore;
 
 /**
  * MyModalMobx
  * @constructor
  */
 const MyModalMobx: FC<TProps> = ({
-  toggle,
+  closeModal,
   isVisible,
-  parentId,
-  store: { count, addCount},
+  store: { count, addCount },
   text = 'default'
 }) => (
-  <div style={{ width: 300 }}>
+  <div style={{ width: 300, background: '#fff', padding: 20 }}>
+    <p>isVisible: {String(isVisible)}</p>
     <p>text: {text}</p>
-    <p>parentId: {parentId}</p>
     <p>count: {count}</p>
     <button onClick={addCount}>add count</button>
-    <button onClick={toggle}>close</button>
+    <button onClick={closeModal}>close</button>
   </div>
 );
 
 const MyModalMobxWrapper = withStores(MyModalMobx, stores)
 
-export const myModalMobxRef = createModalRef<IMyModalMobx>();
+export const myModalMobxRef = createModalRef<TProps>();
 
 /**
  * useMyModalMobx
