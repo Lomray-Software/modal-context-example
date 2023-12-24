@@ -31,14 +31,14 @@ const MyModalMobx: FC<TProps> = ({
 
 const MyModalMobxWrapper = withStores(MyModalMobx, stores)
 
-export const myModalMobxRef = createModalRef<TProps>();
+export const myModalMobxRef = createModalRef<TProps, typeof stores>();
 
 /**
  * useMyModalMobx
  * @constructor
  */
 const useMyModalMobx = () =>
-  useModalMobx<TProps>(MyModalMobxWrapper, {
+  useModalMobx<TProps, typeof stores>(MyModalMobxWrapper, {
     className: 'styles.body',
     hookRef: myModalMobxRef,
   });
