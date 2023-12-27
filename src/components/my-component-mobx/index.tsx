@@ -23,7 +23,7 @@ const MyComponentMobx: FC<IStore> = ({ store: { text }}) => {
       </button>
 
       <button onClick={(e) => myModalMobxRef?.open(e, { text: 'modal with mobx via ref' })}>
-        open modal via global
+        open modal via ref
       </button>
     </div>
   );
