@@ -6,18 +6,17 @@ import useMyModal, { myModalRef } from './my-modal';
  * @constructor
  */
 const MyComponent: FC = () => {
-  const [open] = useMyModal();
+  const [open] = useMyModal(); // [open, hide]
 
   return (
     <div>
       <h1>MyComponent</h1>
 
-      <button onClick={(e) => open(e, { text: 'hello hook' })}>
+      <button onClick={(e) => open(e, { text: 'open modal via hook' })}>
         open modal via hook
       </button>
-
-      <button onClick={(e) => myModalRef?.open(e)}>
-        open modal via global
+      <button onClick={(e) => myModalRef?.open(e, { text: 'open modal via ref' })}>
+        open modal via ref
       </button>
     </div>
   );
