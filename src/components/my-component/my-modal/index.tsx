@@ -25,7 +25,7 @@ export const myModalRef = createModalRef<IMyModal>();
  * @constructor
  */
 const useMyModal = () =>
-  useModal<IMyModal>(MyModal, {
+  useModal(MyModal, {
     className: 'styles.body',
     hookRef: myModalRef,
   });

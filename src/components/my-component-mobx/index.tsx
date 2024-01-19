@@ -18,11 +18,11 @@ const MyComponentMobx: FC<IStore> = ({ store: { text }}) => {
         Store text: {text}
       </p>
 
-      <button onClick={(e) => open(e, { text: 'modal with mobx via hook' })}>
+      <button onClick={() => open({ text: 'modal with mobx via hook' })}>
         open modal via hook
       </button>
 
-      <button onClick={(e) => myModalMobxRef?.open(e, { text: 'modal with mobx via ref' })}>
+      <button onClick={() => myModalMobxRef?.open({ text: 'modal with mobx via ref' })}>
         open modal via ref
       </button>
     </div>
